@@ -27,4 +27,3 @@ export default function CalendarLayout({ children, title }: CalendarLayoutProps)
     </div>
   );
 }
-FILES8_EOF
