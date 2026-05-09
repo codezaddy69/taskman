@@ -6,7 +6,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Calendar, Plus, Settings } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import { useCalendarState } from '@/lib/calendar-state';
 import { CalendarEvent } from '@/lib/calendar-types';
 import MonthView from '@/components/calendar/month-view';
@@ -62,32 +62,24 @@ export default function CalendarPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div>
       {/* Page Header */}
-      <div className="border-b border-input bg-card px-6 py-4 sticky top-0 z-40">
+      <div className="border-b border-input bg-card px-6 py-4">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <Calendar className="h-8 w-8 text-primary-foreground" />
-              <div>
-                <h1 className="text-3xl font-bold text-foreground">
-                  TaskMan Calendar
-                </h1>
-                <p className="text-sm text-muted-foreground">
-                  Never be unprepared again
-                </p>
-              </div>
+            <div>
+              <h1 className="text-3xl font-bold text-foreground">
+                Calendar
+              </h1>
+              <p className="text-sm text-muted-foreground">
+                Never be unprepared again
+              </p>
             </div>
 
-            <div className="flex items-center space-x-3">
-              <Button variant="outline" size="icon">
-                <Settings className="h-5 w-5" />
-              </Button>
-              <Button onClick={handleCreateEvent} size="lg">
-                <Plus className="h-5 w-5 mr-2" />
-                New Event
-              </Button>
-            </div>
+            <Button onClick={handleCreateEvent} size="lg">
+              <Plus className="h-5 w-5 mr-2" />
+              New Event
+            </Button>
           </div>
         </div>
       </div>
@@ -133,7 +125,7 @@ export default function CalendarPage() {
       </div>
 
       {/* Calendar Content */}
-      <div className="p-6 max-w-7xl mx-auto pb-20">
+      <div className="p-6 max-w-7xl mx-auto">
         {state.currentView === 'month' && <MonthView />}
         {state.currentView === 'week' && <WeekView />}
         {state.currentView === 'day' && <DayView />}

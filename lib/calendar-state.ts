@@ -31,8 +31,8 @@ const ensureDateObjects = (events: CalendarEvent[]): CalendarEvent[] => {
 const prepareForStorage = (events: CalendarEvent[]): any[] => {
   return events.map(event => ({
     ...event,
-    start: event.start.toISOString(),
-    end: event.end.toISOString(),
+    start: (event.start instanceof Date ? event.start : new Date(event.start)).toISOString(),
+    end: (event.end instanceof Date ? event.end : new Date(event.end)).toISOString(),
   }));
 };
 
